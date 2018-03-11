@@ -13,5 +13,14 @@ loading: boolean;
 
   ngOnInit() {
   }
-
+  makeRequest(): void {
+    this.loading = true;
+    this.http
+        .get('https://jsonplaceholder.typicode.com/posts/1')
+        .subscribe(data => {
+          console.log('Got it baaaaack!!')
+          this.data = data;
+          this.loading = false;
+        });
+  }
 }
